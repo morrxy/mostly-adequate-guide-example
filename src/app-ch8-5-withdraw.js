@@ -50,5 +50,5 @@ const finishTransaction = S.compose(remainingBalance)(updateLedger);
 // getTwenty :: Account -> Maybe(String)
 const getTwenty = S.compose(map(finishTransaction))(withdraw(20));
 
-log(getTwenty({ balance: 200.0 }));
-log(getTwenty({ balance: 10.0 }));
+log(getTwenty({ balance: 200.0 }).inspect());
+log(getTwenty({ balance: 10.0 }).inspect());

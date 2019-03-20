@@ -32,5 +32,5 @@ const safeHead = xs => Maybe.of(xs[0]);
 // streetName :: Object -> Maybe String
 const streetName = S.pipe([x => x.addresses, safeHead, map(x => x.street)]);
 
-log(streetName({ addresses: [] }));
-log(streetName({ addresses: [{ street: 'Shady Ln.', number: 4201 }] }));
+log(streetName({ addresses: [] }).inspect());
+log(streetName({ addresses: [{ street: 'Shady Ln.', number: 4201 }] }).inspect());

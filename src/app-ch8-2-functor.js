@@ -16,7 +16,9 @@ Container.prototype.map = function(f) {
 };
 
 log(Container.of(2).map(two => two + 2));
+
 log(Container.of('flamethrowers').map(s => s.toUpperCase()));
+
 log(
   Container.of('bombs')
     .map(x => `${x} away`)
