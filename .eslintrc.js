@@ -13,5 +13,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 7,
     sourceType: 'module'
+  },
+  globals: {
+    window: true
   }
 };

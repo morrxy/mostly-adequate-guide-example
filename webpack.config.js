@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const glob = require('glob');
+const fs = require('fs');
 
 const config = {
   mode: 'development',
@@ -25,15 +26,38 @@ const getEntry = pattern => {
 
   return entryList.map(item => {
     const name = path.basename(item, '.js');
-    return {
+
+    const templatePath = path.join(path.dirname(item), `${name}.html`);
+
+    let isExist;
+
+    try {
+      fs.accessSync(templatePath, fs.constants.F_OK);
+      isExist = true;
+    } catch (err) {
+      isExist = false;
+    }
+
+    const config = {
       entry: {
         [name]: item
       },
       plugins: [
-        new HtmlWebpackPlugin({
-          filename: `${name}.html`
-        })
+        new HtmlWebpackPlugin(
+          Object.assign(
+            {
+              filename: `${name}.html`
+            },
+            isExist
+              ? {
+                  template: templatePath
+                }
+              : {}
+          )
+        )
       ]
     };
+
+    return config;
   });
 };
