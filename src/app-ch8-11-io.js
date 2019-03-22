@@ -1,11 +1,6 @@
-import * as S from 'sanctuary';
 import { log } from './utils/helper';
-
-// split :: String -> String -> [String]
-const split = S.curry2((sep, str) => str.split(sep));
-
-// head :: [a] -> a
-const head = xs => xs[0];
+import { split, head } from './utils/point-free';
+import { compose } from './utils/essential-fn';
 
 class IO {
   static of(x) {
@@ -17,7 +12,12 @@ class IO {
   }
 
   map(fn) {
-    return new IO(S.compose(fn)(this.$value));
+    return new IO(
+      compose(
+        fn,
+        this.$value
+      )
+    );
   }
 
   inspect() {
@@ -29,14 +29,14 @@ class IO {
 const ioWindow = new IO(() => window);
 
 const io1 = ioWindow.map(win => win.innerWidth);
-log(io1.inspect());
+
 log(io1.$value());
 
 const io2 = ioWindow
   .map(x => x.location)
   .map(x => x.href)
   .map(split('/'));
-log(io2.inspect());
+
 log(io2.$value());
 
 // $ :: String -> IO [DOM]
@@ -45,5 +45,5 @@ const $ = selector => new IO(() => window.document.querySelectorAll(selector));
 const io3 = $('#myDiv')
   .map(head)
   .map(div => div.innerHTML);
-log(io3.inspect());
+
 log(io3.$value());

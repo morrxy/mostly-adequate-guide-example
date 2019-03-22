@@ -1,5 +1,5 @@
-import * as S from 'sanctuary';
 import { log } from './utils/helper';
+import { match, add } from './utils/point-free';
 
 class Maybe {
   static of(x) {
@@ -25,26 +25,26 @@ class Maybe {
 
 log(
   Maybe.of('Malkovich Malkovich')
-    .map(S.test(/a/gi))
+    .map(match(/a/gi))
     .inspect()
 );
 
 log(
   Maybe.of(null)
-    .map(S.test(/a/gi))
+    .map(match(/a/gi))
     .inspect()
 );
 
 log(
   Maybe.of({ name: 'Boris' })
     .map(x => x.age)
-    .map(S.add(10))
+    .map(add(10))
     .inspect()
 );
 
 log(
   Maybe.of({ name: 'Dinah', age: 14 })
     .map(x => x.age)
-    .map(S.add(10))
+    .map(add(10))
     .inspect()
 );

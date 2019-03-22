@@ -1,4 +1,3 @@
-// import * as S from 'sanctuary';
 import { log } from './utils/helper';
 
 class Either {

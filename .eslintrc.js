@@ -7,7 +7,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-unused-vars': 'error',
+    'no-unused-vars': 'warn',
     complexity: ['error', 6]
   },
   parserOptions: {
