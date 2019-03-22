@@ -1,5 +1,5 @@
 import { log } from './utils/helper';
-import { match, add } from './utils/point-free';
+import { match, add, prop } from './utils/point-free';
 
 class Maybe {
   static of(x) {
@@ -37,14 +37,14 @@ log(
 
 log(
   Maybe.of({ name: 'Boris' })
-    .map(x => x.age)
+    .map(prop('age'))
     .map(add(10))
     .inspect()
 );
 
 log(
   Maybe.of({ name: 'Dinah', age: 14 })
-    .map(x => x.age)
+    .map(prop('age'))
     .map(add(10))
     .inspect()
 );
