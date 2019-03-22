@@ -1,4 +1,4 @@
-runable example for [Professor Frisby’s Mostly Adequate Guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide), use [Sanctuary](https://github.com/sanctuary-js/sanctuary) instead of Ramda.
+runable example for [Professor Frisby’s Mostly Adequate Guide to Functional Programming](https://github.com/MostlyAdequate/mostly-adequate-guide), use [Sanctuary](https://github.com/sanctuary-js/sanctuary).
 
 ## how to run
 1. `npm start`
