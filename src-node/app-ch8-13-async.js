@@ -1,6 +1,8 @@
 import { Task } from '../src/utils/Task';
 import { split, head } from '../src/utils/point-free';
 
+// -- Node readFile example ------------------------------------------
+
 const fs = require('fs');
 const path = require('path');
 
@@ -11,6 +13,7 @@ const readFile = filename =>
   });
 
 const filePath = path.join(__dirname, 'metamorphosis');
+
 const firstLine = readFile(filePath)
   .map(split('\n'))
   .map(head);

@@ -3,6 +3,8 @@ import { Task } from '../src/utils/Task';
 import { curry } from '../src/utils/essential-fn';
 import { prop } from '../src/utils/point-free';
 
+// -- jQuery getJSON example -----------------------------------------
+
 // getJSON :: String -> {} -> Task Error JSON
 const getJSON = curry(
   (url, params = {}) =>
