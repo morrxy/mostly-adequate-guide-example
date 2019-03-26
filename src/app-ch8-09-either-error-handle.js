@@ -1,8 +1,10 @@
 import { log } from './utils/helper';
 import * as moment from 'moment';
 import { curry, compose } from './utils/essential-fn';
-import { append, toString, add, map } from './utils/point-free';
+import { toString, add, map } from './utils/point-free';
 import { Either, Left } from './utils/Either';
+
+const append = x => y => `${x}${y}`;
 
 const left = x => new Left(x);
 
