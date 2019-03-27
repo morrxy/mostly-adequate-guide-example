@@ -51,3 +51,11 @@ export const safeHead = compose(
 
 // toUpperCase :: String -> String
 export const toUpperCase = s => s.toUpperCase();
+
+// safeProp :: String -> Object -> Maybe a
+export const safeProp = curry((p, obj) =>
+  compose(
+    Maybe.of,
+    prop(p)
+  )(obj)
+);

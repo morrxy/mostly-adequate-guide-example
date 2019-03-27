@@ -7,6 +7,4 @@ runable example for [Professor Frisby’s Mostly Adequate Guide to Functional Pr
 
 ## how to run node example
 
-`node -r esm path-to-example-file`
-
-`node -r esm src-node/app-ch8-13-async.js`
+`node -r esm path-to-example-file` e.g. `node -r esm src-node/app-ch8-13-async.js`
