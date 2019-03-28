@@ -11,7 +11,7 @@ module.exports = {
     complexity: ['error', 6]
   },
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 9,
     sourceType: 'module'
   },
   globals: {
