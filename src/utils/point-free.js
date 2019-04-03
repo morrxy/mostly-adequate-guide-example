@@ -14,10 +14,10 @@ export const map = curry((fn, f) => f.map(fn));
 export const prop = curry((p, obj) => obj[p]);
 
 // concat :: String -> String -> String
-const concat = curry((a, b) => a.concat(b));
+export const concat = curry((a, b) => a.concat(b));
 
 // flip :: (a -> b -> c) -> b -> a -> c
-const flip = curry((fn, a, b) => fn(b, a));
+export const flip = curry((fn, a, b) => fn(b, a));
 
 // append :: String -> String
 // export const append = curry((str, str2) => `${str}${str2}`);
