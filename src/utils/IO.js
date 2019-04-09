@@ -35,8 +35,10 @@ export class IO {
   }
 
   join() {
-    return new IO(() => {
-      return this.unsafePerformIO().unsafePerformIO();
-    });
+    return this.unsafePerformIO();
+
+    // return new IO(() => {
+    //   return this.unsafePerformIO().unsafePerformIO();
+    // });
   }
 }
