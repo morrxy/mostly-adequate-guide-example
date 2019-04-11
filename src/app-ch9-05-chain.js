@@ -2,7 +2,7 @@ import { map, safeProp, safeHead, join, chain } from './utils/point-free';
 import { log } from './utils/helper';
 import { compose } from './utils/essential-fn';
 
-// firstAddressStreet :: User -> Maybe (Maybe (Maybe Street))
+// firstAddressStreet :: User -> Maybe Street
 // map/join version
 const firstAddressStreet = compose(
   join,

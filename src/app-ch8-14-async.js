@@ -8,8 +8,8 @@ import { prop } from '../src/utils/point-free';
 // getJSON :: String -> {} -> Task Error JSON
 const getJSON = curry(
   (url, params = {}) =>
-    new Task((reject, result) => {
-      $.getJSON(url, params, result).fail(reject);
+    new Task((reject, resolve) => {
+      $.getJSON(url, params, resolve).fail(reject);
     })
 );
 
