@@ -16,6 +16,9 @@ export const append = flip(concat);
 // append :: String -> String
 // export const append = curry((str, str2) => `${str}${str2}`);
 
+// chain :: Monad m => (a -> m b) -> m a -> m b
+export const chain = curry((fn, m) => m.chain(fn));
+
 // eq :: Eq a => a -> a -> Boolean
 export const eq = curry((a, b) => a === b);
 
