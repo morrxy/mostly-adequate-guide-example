@@ -1,5 +1,5 @@
 import { log } from './utils/helper';
-import * as moment from 'moment';
+import moment from 'moment';
 import { curry } from './utils/essential-fn';
 import { Either, Left } from './utils/Either';
 
