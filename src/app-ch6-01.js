@@ -1,5 +1,6 @@
-import { compose, curry, map, prop } from 'ramda';
-import * as $ from 'jquery';
+import { compose, curry } from './utils/essential-fn';
+import { map, prop } from './utils/point-free';
+import $ from 'jquery';
 
 // -- Utils ----------------------------------------------------------
 const Impure = {
@@ -18,14 +19,17 @@ const query = t => `?tags=${t}&format=json&jsoncallback=?`;
 const url = t => `https://${host}${path}${query(t)}`;
 
 const img = src => $('<img />', { src });
+
 const mediaUrl = compose(
   prop('m'),
   prop('media')
 );
+
 const mediaUrls = compose(
   map(mediaUrl),
   prop('items')
 );
+
 const images = compose(
   map(img),
   mediaUrls
@@ -36,6 +40,7 @@ const render = compose(
   Impure.setHtml('#js-main'),
   images
 );
+
 const app = compose(
   Impure.getJSON(render),
   url

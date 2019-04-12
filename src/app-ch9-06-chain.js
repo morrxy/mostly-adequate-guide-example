@@ -1,7 +1,7 @@
 import { join, map, chain } from './utils/point-free';
 import { compose, curry } from './utils/essential-fn';
 import { IO } from './utils/IO';
-import * as jQuery from 'jquery';
+import jQuery from 'jquery';
 
 // log :: a -> IO a
 // const log = x => IO.of(() => {

@@ -1,4 +1,4 @@
-import * as $ from 'jquery';
+import $ from 'jquery';
 import { Task } from '../src/utils/Task';
 import { curry } from '../src/utils/essential-fn';
 import { prop } from '../src/utils/point-free';
