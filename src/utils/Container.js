@@ -11,6 +11,14 @@ export class Container {
     return Container.of(f(this.$value));
   }
 
+  join() {
+    return this.$value;
+  }
+
+  chain(f) {
+    return this.map(f).join();
+  }
+
   inspect() {
     return `Container(${this.$value})`;
   }
