@@ -19,6 +19,10 @@ export class Container {
     return this.map(f).join();
   }
 
+  ap(otherContainer) {
+    return otherContainer.map(this.$value);
+  }
+
   inspect() {
     return `Container(${this.$value})`;
   }
