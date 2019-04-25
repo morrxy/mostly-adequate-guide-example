@@ -8,11 +8,13 @@ import { Task } from './utils/Task';
 const m = Maybe.of(add)
   .ap(Maybe.of(2))
   .ap(Maybe.of(3));
+
 log(m.inspect());
 
 const t = Task.of(add)
   .ap(Task.of(2))
   .ap(Task.of(3));
+
 log(t.inspect());
 
 t.fork(console.error, console.log);
