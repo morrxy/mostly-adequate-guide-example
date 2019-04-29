@@ -34,6 +34,17 @@ export const join = m => m.join();
 // last :: [a] -> a
 export const last = xs => xs[xs.length - 1];
 
+// liftA2 :: (Applicative f) => (a1 -> a2 -> b) -> f a1 -> f a2 -> f b
+export const liftA2 = curry((fn, a1, a2) => a1.map(fn).ap(a2));
+
+// liftA3 :: (Applicative f) => (a1 -> a2 -> a3 -> b) -> f a1 -> f a2 -> f a3 -> fb
+export const liftA3 = curry((fn, a1, a2, a3) =>
+  a1
+    .map(fn)
+    .ap(a2)
+    .ap(a3)
+);
+
 // map :: Functor f => (a -> b) -> f a -> f b
 export const map = curry((fn, f) => f.map(fn));
 
