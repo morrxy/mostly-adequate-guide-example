@@ -1,6 +1,6 @@
 import { IO } from './utils/IO';
 import { curry, compose } from './utils/essential-fn';
-import { map, prop } from './utils/point-free';
+import { map, prop, liftA3 } from './utils/point-free';
 
 // $ :: String -> IO DOM
 const $ = selector => new IO(() => window.document.querySelector(selector));
@@ -24,3 +24,8 @@ const signInAp = IO.of(signIn)
 
 console.log(signInAp.inspect());
 console.log(signInAp.unsafePerformIO());
+
+// lift version
+const signInLift = liftA3(signIn, getVal('#email'), getVal('#password'), IO.of(false));
+console.log(signInLift.inspect());
+console.log(signInLift.unsafePerformIO());

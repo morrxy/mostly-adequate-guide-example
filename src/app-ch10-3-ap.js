@@ -1,4 +1,4 @@
-import { add } from './utils/point-free';
+import { add, liftA2 } from './utils/point-free';
 import { log } from './utils/helper';
 import { Maybe } from './utils/Maybe';
 import { Task } from './utils/Task';
@@ -10,6 +10,9 @@ const m = Maybe.of(add)
   .ap(Maybe.of(3));
 
 log(m.inspect());
+
+// lift version
+log(liftA2(add, Maybe.of(2), Maybe.of(3)).inspect());
 
 const t = Task.of(add)
   .ap(Task.of(2))
