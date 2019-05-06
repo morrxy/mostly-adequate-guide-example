@@ -54,6 +54,15 @@ export const match = curry((re, str) => re.test(str));
 // prop :: String -> Object -> a
 export const prop = curry((p, obj) => obj[p]);
 
+// reverse :: [a] -> [a]
+export const reverse = x =>
+  Array.isArray(x)
+    ? x.reverse()
+    : x
+        .split('')
+        .reverse()
+        .join('');
+
 // safeHead :: [a] -> Maybe a
 export const safeHead = compose(
   Maybe.of,
